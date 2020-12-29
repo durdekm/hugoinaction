@@ -16,16 +16,7 @@
 
 <body class="{{block "bodyClass" .}}page{{end}}">
   {{block "header" .}}
-  <header>
-    {{ $logo := resources.GetMatch "image/logo.svg.tpl" | resources.ExecuteAsTemplate "logo.svg" . }}
-
-    <a href="{{site.BaseURL}}"><img src="{{$logo.Permalink}}" width="60px"></a>
-    <span id="search">
-      <input type="search" placeholder="Search">
-      <div></div>
-    </span>
-    {{ partialCached "menu.html" (dict "Menu" site.Menus.main  "RenderSubmenus" true) "main" "true" }}
-  </header>
+  {{ partialCached "header.html" (dict "cart" false) "false" }}
   {{ end }}
   {{block "body" .}}
     <section>
