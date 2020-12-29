@@ -1,6 +1,7 @@
 ---
 product: Square
 title: Square
+product-tags: ['shape', '2d', 'quadrilateral']
 Summary: A square is a regular quadrilateral, which means that it has four equal sides and four equal angles
 ---
 

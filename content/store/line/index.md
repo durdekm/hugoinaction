@@ -1,6 +1,7 @@
 ---
 title: Line
 product: Line
+product-tags: ['shape', '1d']
 Summary: Straight objects (i.e., having no curvature) with negligible width and depth.
 ---
 

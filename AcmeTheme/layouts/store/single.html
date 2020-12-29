@@ -36,6 +36,11 @@
     </div>
     <div class="price"> Price: <span class="value">{{ $product.price }}</span></div>
     {{.Content}}
+    <div class="tags">
+      {{range $.Page.Params.Get "product-tags"}}
+        <a href="{{"/product-tags/" | relURL }}{{. | urlize}}">#{{.}}</a>
+      {{ end }}
+    </div>
     </div>
   </main>
 </section>
@@ -43,13 +48,13 @@
   <main>
     {{ $related := (where (site.RegularPages.Related . ) "Section" .Section) | first 3 }}
     {{with $related}}
-    <h2>Related Products</h2>
-    {{range .}}
-      {{.Render "card"}}
-    {{end}}
+      <h2>Related Products</h2>
+      {{range .}}
+        {{.Render "card"}}
+      {{end}}
     {{end}}
 
-    {{ partial "comment.html" (dict "FormspreeCommentForm" ($.Param "FormspreeCommentForm") "RelPermalink" .Page.RelPermalink "Disabled" ($.Param "CommentDisabled")) }}
+        {{ partial "comment.html" (dict "FormspreeCommentForm" ($.Param "FormspreeCommentForm") "RelPermalink" .Page.RelPermalink "Disabled" ($.Param "CommentDisabled")) }}
   </main>
 </section>
 {{end}}
