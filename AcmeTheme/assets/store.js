@@ -115,5 +115,18 @@ export default {
       console.error(e)
       document.querySelector(".cart > div").innerHTML = `We have an error. Please contact customer support`;
   }
+  },
+
+  async handleSuccess() {
+    const url = new URL(window.location.href);
+    if (url.searchParams.get("retain") === "false") {
+      cart.length = 0;
+      this.save();
+    }
+    (document.querySelector(".intro") || document.querySelector(".content")).insertAdjacentHTML("beforebegin", '<div class="alert"><div class="head">Order Confirmed.</div> You should receive an email within the next 10 hours with your digital purchase.<br> <small>In case of any issues please contact customer support.</small></div>');
+
+    url.searchParams.delete("purchase");
+    url.searchParams.delete("retain");
+    window.history.replaceState(null, "", url);
   }
 }

@@ -13,6 +13,7 @@ if (env.NETLIFY) {
 ////////////////////////////////////////////////////////////////
 // End custom code for getting build details from Netlify.
 ////////////////////////////////////////////////////////////////
+
 const stripe = require('stripe')(env.STRIPE_PRIVATE_KEY);
 const fetch = require("node-fetch");
 
