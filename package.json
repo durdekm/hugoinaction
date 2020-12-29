@@ -2,7 +2,8 @@
  "comments": {
   "dependencies": {
    "mathjax": "project",
-   "node-fetch": "project"
+   "node-fetch": "project",
+   "stripe": "project"
   },
   "devDependencies": {
    "@easylogic/editor": "project",
@@ -11,7 +12,8 @@
  },
  "dependencies": {
   "mathjax": "3.1.2",
-  "node-fetch": "2.6.1"
+  "node-fetch": "2.6.1",
+  "stripe": "^8.129.0"
  },
  "devDependencies": {
   "@easylogic/editor": "0.10.0",
@@ -19,7 +21,9 @@
  },
  "main": "api.js",
  "name": "acme-corporation-website",
+ "NOTE": "postinstall script added early for multi-branch checkout. Will be needed in the next checkpoint where this comment will be removed",
  "scripts": {
+  "postinstall": "node api/postinstall.js",
   "start": "node api.js"
  },
  "version": "0.1.0"
