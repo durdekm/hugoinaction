@@ -38,8 +38,8 @@ server.on("request", async function (req, res) {
     response.body = JSON.stringify(e);
   }
 
-  res.headers = res.headers || {};
-  res.headers['Access-Control-Allow-Origin'] = '*';
+  response.headers = response.headers || {};
+  response.headers['Access-Control-Allow-Origin'] = '*';
   res.writeHead(response.statusCode, response.headers);
   res.end(response.body);
 });
