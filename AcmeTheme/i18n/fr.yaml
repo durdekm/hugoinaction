@@ -1,0 +1,12 @@
+- id: search
+  translation: chercher
+- id: comments
+  translation: commentaires
+- id: postComment
+  translation:  poster un commentaire
+- id: name
+  translation: nom
+- id: comment
+  translation: commentaire
+- id: send
+  translation: envoyer

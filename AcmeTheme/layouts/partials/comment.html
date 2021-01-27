@@ -4,7 +4,7 @@
 </div>
 {{ else }}
 <div class="comments">
-<h3> Comments </h3>
+<h3> {{i18n "comments"}} </h3>
 {{$comments := dict}}
 {{if getenv "NETLIFY" }}
   {{$comments = partialCached "netlifyCommentList.html" .}}
@@ -42,18 +42,18 @@
 {{ else }}
   <form data-dynamic-form data-success="#comment-success" data-error="#comment-error" data-pre="#comment-pre" action="https://formspree.io/{{.FormspreeCommentForm}}" method="post">
 {{ end }}
-  <h3> Post a comment</h3>
+  <h3> {{i18n "postComment"}}</h3>
   <input type="hidden" name="url" value="{{.RelPermalink}}">
   <div>
-    <label for="name">Name:</label>
+    <label for="name">{{i18n "name"}}:</label>
     <input name="name" type="text" required>
   </div>
   <div>
-    <label for="message">Comment:</label>
+    <label for="message">{{i18n "comment"}}:</label>
     <textarea name="message" cols="50" rows="10" required></textarea>
   </div>
   <div>
-    <button type="submit">Send</button>
+    <button type="submit">{{i18n "send"}}</button>
   </div>
 </form>
 </div>
