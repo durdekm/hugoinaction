@@ -7,6 +7,10 @@ function init() {
   FormHandler.init();
   Search.init();
   router();
+  if ('serviceWorker' in navigator && window.location.pathname !== '/offline') {
+    navigator.serviceWorker.register('/serviceWorker.js',
+      { scope: '/' });
+  }
 }
 
 function router() {
@@ -24,5 +28,5 @@ function router() {
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {
-  init();
+init();
 }

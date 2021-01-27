@@ -14,6 +14,14 @@
   {{ $defines := dict "REMOVE_FORM_ON_SUBMISSION" (default "false" (site.Param "RemoveFormOnSubmission")) "BASE_URL" (print "\"" site.BaseURL "\"" ) "NETLIFY" $netlify}}
   {{ $js := resources.Get "index.js" | js.Build (dict "defines" $defines "minify" (not site.IsServer))}}
 <script type="text/javascript" src="{{ $js.RelPermalink }}" defer></script>
+{{ $logo := resources.GetMatch "image/logo.svg.tpl" | resources.ExecuteAsTemplate "logo.svg" . }}
+{{ $background := resources.GetMatch "image/background.svg.tpl" | resources.ExecuteAsTemplate "background.svg" . }}
+  {{$params := dict "pages" (slice "/" "/offline" $css.RelPermalink $js.RelPermalink $logo.RelPermalink $background.RelPermalink)}}
+  {{ $js := resources.Get "serviceWorker.js" | js.Build (dict "params" $params "minify" (not site.IsServer))}}
+  <!-- {{- $js.RelPermalink -}} -->
+  {{$manifest := (dict "name" (default site.Home.Title site.Title) "display" "minimal-ui" "start_url" site.BaseURL "icons" (slice (dict "src" $logo.RelPermalink "type" "image/svg+xml" "sizes" "155x155")) )}}
+  {{ $manifestFile := $manifest | jsonify | resources.FromString "/manifest.webmanifest" }}
+  <link rel="manifest" href="{{$manifestFile.RelPermalink}}">
 {{ template "_internal/twitter_cards.html" . }}
 {{ template "_internal/opengraph.html" . }}
 </head>
