@@ -9,9 +9,7 @@ testimonials:
     content: Sharp et robuste - Tout comme vous les voulez.
   - author: Richter @ Richter Measures
     content: Précision incontestable. Garantie de sécurité. Nous adorons ce qu'Acme offre
-outputs:
-- html
-- json
+
 ---
 
 Acme Corporation&trade; est le _premier fabricant mondial de formes numériques_. Des carrés et des cercles aux triangles et hexagones, nous avons tout. Parcourez notre collection de formes variées avec différentes épaisseurs et styles de lignes.
