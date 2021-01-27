@@ -1,6 +1,7 @@
 en:
   params:
 fr:
+  contentDir: contentFr
   params:
     copyright: "Copyright &copy; 2020 Acme Corporation. Tous les droits sont réservés."
   menu:
