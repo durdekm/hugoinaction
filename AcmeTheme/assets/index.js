@@ -6,6 +6,7 @@ import Store from "./store"
 function init() {
   FormHandler.init();
   Search.init();
+  document.addEventListener("turbolinks:load", router);
   router();
   if ('serviceWorker' in navigator && window.location.pathname !== '/offline') {
     navigator.serviceWorker.register('/serviceWorker.js',
@@ -25,8 +26,4 @@ function router() {
   }
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
 init();
-}

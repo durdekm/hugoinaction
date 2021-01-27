@@ -16,6 +16,7 @@
 <script type="text/javascript" src="{{ $js.RelPermalink }}" defer></script>
 {{ $logo := resources.GetMatch "image/logo.svg.tpl" | resources.ExecuteAsTemplate "logo.svg" . }}
 {{ $background := resources.GetMatch "image/background.svg.tpl" | resources.ExecuteAsTemplate "background.svg" . }}
+{{ partialCached "jslibs/turbolinks/script-src.html" "-" }}
   {{$params := dict "pages" (slice "/" "/offline" $css.RelPermalink $js.RelPermalink $logo.RelPermalink $background.RelPermalink)}}
   {{ $js := resources.Get "serviceWorker.js" | js.Build (dict "params" $params "minify" (not site.IsServer))}}
   <!-- {{- $js.RelPermalink -}} -->
